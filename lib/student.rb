@@ -34,6 +34,7 @@ def self.drop_table
       SQL
 
       DB[:conn].execute(sql, self.name, self.grade)
+      @id = DB[:conn].execute("SELECT last_inset_rowid() FROM students")[0][0]
     end
 
 end
